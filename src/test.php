@@ -39,4 +39,4 @@ if        ( array_key_exists( 'X-Forwarded-For', $headers ) && filter_var( $head
             'unknown';
 }
 
-echo "IP ADDRESS: ".filter_var( $the_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
+echo "IP ADDRESS: ".$the_ip;
