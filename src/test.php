@@ -22,13 +22,13 @@ if ( function_exists('apache_request_headers') ) {
 
 
 if        ( array_key_exists( 'X-Forwarded-For', $headers ) && filter_var( $headers['X-Forwarded-For'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
-  $the_ip = $headers['X-Forwarded-For'] . " (X-Forwarded-For)";
+  $the_ip = $headers['X-Forwarded-For'];
 
 } elseif  ( array_key_exists( 'HTTP_X_FORWARDED_FOR', $headers ) && filter_var( $headers['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
-  $the_ip = $headers['HTTP_X_FORWARDED_FOR'] . "(HTTP_X_FORWARDED_FOR)";
+  $the_ip = $headers['HTTP_X_FORWARDED_FOR'];
 
 } elseif  ( array_key_exists( 'REMOTE_ADDR', $headers ) ) {
-  $the_ip = filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) . " (REMOTE_ADDR)";
+  $the_ip = filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
 
 } else {
   $the_ip = getenv('HTTP_CLIENT_IP')?:
